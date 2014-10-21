@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<title>Body By Science</title>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<link href="css/reset.css" rel="stylesheet" />
+<link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+<link href="css/lightbox.css" rel="stylesheet" />
+<link href="css/style.css" rel="stylesheet" />
+<!--[if (lt IE 9)&(!IEMobile)]>
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<![endif]-->
+
+<!--JS loads-->
+<script src="js/jquery-1.11.0.min.js"></script>
+<script src="js/lightbox.min.js"></script>
+<script src="https://cdn.firebase.com/js/client/1.1.2/firebase.js"></script>
+<script src="js/modernizr.custom.24685.js"></script>
+<script src="js/respond.js"></script>
+
+</head>
+<body>
+
+<!--- Establish Reference to Firebase -->
+<script> var ref = new Firebase("https://torid-fire-447.firebaseio.com/");</script>
+
+
+
+
+
+
+<!--- Button Code -->
+<script>
+function ButtonPush(){
+    var dt = new Date();
+    var dtjs = dt.toJSON();
+    var userRef = ref.child("event");
+    //userRef.push({"start":"data"});
+    userRef.push({"timing":dtjs});
+};
+</script>
+
+Body by Science
+<button onclick="ButtonPush()">Click me</button>
+
+</body>
+</html>
